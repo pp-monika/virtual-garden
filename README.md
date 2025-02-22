@@ -15,3 +15,7 @@ introduce those natural history collections in a user-friendly way with differen
   - Target Users
 
 
+## installation
+cd virtual-museum
+npm install vite --save-dev
+use npm run dev to run
