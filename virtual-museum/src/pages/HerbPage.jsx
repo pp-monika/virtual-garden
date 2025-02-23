@@ -1,57 +1,41 @@
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import DEMO_DATA from "../../data/demo_data";
-import BatchPopup from "../components/popUpBatch";
-
 
 export default function HerbPage() {
     const { herbId } = useParams();
-    const [herbName, setHerbName] = useState("Flower");
-    const [herbMedia, setHerbMedia] = useState("flower.png");
-    const [herbLocation, setHerbLocation] = useState("Massachusetts");
-  
+    const navigate = useNavigate();
 
-    useEffect(() =>{
-        fetchData(herbId);
-    },[])
-
-    const fetchData = (herbId) => {
-        const foundHerb = DEMO_DATA.find(herb => herb.id === herbId);
-        if (!foundHerb) {
-          console.error("No herb found with id:", herbId);
-          return null;
-        }
-        const HerbName = foundHerb["scientificName.x"] || "Unknown Herb";
-        const Location = foundHerb["stateProvince"] || "Unknown Location";
-        const MediaUrl = foundHerb["identifier"] || "default.png";
-
-        setHerbName(HerbName);
-        setHerbLocation(Location);
-        setHerbMedia(MediaUrl);
+    // Directly find the herb from DEMO_DATA
+    const herb = DEMO_DATA.find((h) => h.id === herbId) || {
+        "scientificName.x": "Unknown Herb",
+        "scientificName.y": "Unknown Herb",
+        "stateProvince": "Unknown Location",
+        "identifier": "default.png"
     };
 
-    const navigate = useNavigate();
-    const handleBack = () =>{
-        navigate(`/`);
-    }
-
     return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center", // Centers horizontally
-                justifyContent: "center", // Centers vertically
-                minHeight: "100vh", // Ensures full-screen height
-                textAlign: "center", // Ensures text alignment
-            }}
-            >
+        <div className="container mt-5 d-flex align-items-center">
+            <div className="row justify-content-center align-items-start w-100">
+                
+                {/* Left Column - Image */}
+                <div className="col-md-4 text-center">
+                    <img 
+                        src={herb.identifier} 
+                        alt={herb["scientificName.x"]} 
+                        className="img-fluid rounded shadow-lg"
+                        style={{ maxHeight: "70vh", objectFit: "cover" }}
+                    />
+                </div>
 
-            <h2>Congratulations! You got a {herbName}</h2>
-            <img src={herbMedia} alt="Herb" height={500} />
-            <p>This is found in {herbLocation}</p>
-            <button onClick={handleBack} class="btn btn-primary">Back</button>
+                {/* Right Column - Herb Details */}
+                <div className="col-md-8 text-md-start ps-5 pt-5">
+                    <h2 className="fw-bold">{herb["scientificName.x"]}</h2>
+                    <p className="fs-5 text-muted">
+                        Found in {herb.stateProvince}
+                    </p>
+                </div>
+
+            </div>
         </div>
     );
 }
