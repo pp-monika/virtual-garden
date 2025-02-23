@@ -51,16 +51,16 @@ export default function USMap() {
                     position: "fixed",
                     left: `${tooltipPosition.x}px`,
                     top: `${tooltipPosition.y}px`,
-                    background: "white",  // ✅ Set background to white
-                    color: "black",  // ✅ Set text color to black for readability
+                    background: "white",
+                    color: "black",
                     padding: "5px 10px",
                     borderRadius: "5px",
                     fontSize: "0.9rem",
                     whiteSpace: "nowrap",
                     pointerEvents: "none",
                     zIndex: 1000,
-                    border: "1px solid #ccc", // ✅ Optional: Adds a light border for better visibility
-                    boxShadow: "2px 2px 10px rgba(0, 0, 0, 0.1)" // ✅ Optional: Adds a subtle shadow
+                    border: "1px solid #ccc",
+                    boxShadow: "2px 2px 10px rgba(0, 0, 0, 0.1)"
                 }}>
                     {hoveredState}
                 </div>
@@ -73,7 +73,7 @@ export default function USMap() {
                             <Geography
                                 key={geo.rsmKey}
                                 geography={geo}
-                                onMouseMove={(event) => handleMouseMove(event, geo)} // Show tooltip only after delay
+                                onMouseMove={(event) => handleMouseMove(event, geo)}
                                 onMouseLeave={handleMouseLeave}
                                 onClick={() => handleStateClick(geo)}
                                 style={{
