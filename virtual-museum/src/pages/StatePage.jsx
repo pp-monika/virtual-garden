@@ -33,6 +33,7 @@ export default function StatePage() {
                         <h1 className="display-1 fw-bold pt-3 pb-3">Plants of {stateName.replace("-", " ")} Collection</h1>
                     </div>
                 </div>
+                <MysteryBox />
             </div>
 
             <div className="d-flex align-items-center justify-content-center py-5" style={{ height: "50vh", backgroundColor: "#faf5e6" }}>
@@ -59,6 +60,7 @@ export default function StatePage() {
                                 return <RightPlantBlurb filteredData={filteredData} />
                             })
                         }
+                         
                     </div>
 
                     <div className="container" style={{paddingBottom: "100px", paddingTop: "100px"}}>

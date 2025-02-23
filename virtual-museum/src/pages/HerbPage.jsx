@@ -3,6 +3,7 @@ import DEMO_DATA_2 from "../../data/demo_data_2";
 import { useEffect, useState } from "react";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
+import MysteryBox from "../components/mysteryBox";
 
 export default function HerbPage() {
     const { herbId } = useParams();
@@ -75,9 +76,11 @@ export default function HerbPage() {
                             <p className="fs-6"><strong>📝 AI-generated Description:</strong> {herbDescription}</p>
                         </div>
                     </div>
+                    
                 </div>
-
+               
             </div>
+            <MysteryBox />
         </div>
     );
 }
