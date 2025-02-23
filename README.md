@@ -9,7 +9,10 @@ In this project, we mainly aim to create a website,
 introduce those natural history collections in a user-friendly way with different sorts of target users.
 
 - Data Description
-- Data Collection
+  - Due to the time limit, we aim to narrow down our targeted country to United States only and acquire about xx rows.
+- Data Processing
+  - Errors happened during the transformation from txt file to readable csv file, the 'state' column contains location name that doesn't even exist. 
+  
 - Data Visualization
 - Web Design
   - Target Users
