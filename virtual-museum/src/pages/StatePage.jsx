@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import topicImage from "../assets/ma-collection-topic-image-2.jpg";
 import DEMO_DATA from "../../data/demo_data"
 import LeftPlantBlurb from "../components/LeftPlantBlurb"
@@ -8,6 +8,7 @@ import RightPlantBlurb from "../components/RightPlantBlurb"
 
 export default function StatePage() {
     const { stateName } = useParams();
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -45,6 +46,7 @@ export default function StatePage() {
                     {DEMO_DATA.filter((data) => data.id === "eab00aaa-b85b-4edf-bebf-c8de5a898665")
                         .map((filteredData) => {
                             return <LeftPlantBlurb filteredData={filteredData} />
+                            
                         })
                     }
                 </div>
@@ -76,7 +78,7 @@ export default function StatePage() {
                 rows.push(
                     <div key={i} className="row g-2 justify-content-center mb-5">
                         <div className="col-md-6 d-flex justify-content-center" style={{paddingLeft: "15vw"}}>
-                            <div className="card shadow-sm" style={{ width: "100%", maxWidth: "350px", borderRadius: "10px" }}>
+                            <div className="card shadow-sm" style={{ width: "100%", maxWidth: "350px", borderRadius: "10px", cursor: "pointer" }} onClick={() => navigate(`/herb/${filteredData[i].id}`)}>
                                 <img 
                                     src={filteredData[i].identifier}  
                                     alt={filteredData[i]["scientificName.x"]}
@@ -91,7 +93,7 @@ export default function StatePage() {
 
                         {filteredData[i + 1] && (
                             <div className="col-md-6 d-flex justify-content-center" style={{paddingRight: "15vw"}}>
-                                <div className="card shadow-sm" style={{ width: "100%", maxWidth: "350px", borderRadius: "10px" }}>
+                                <div className="card shadow-sm" style={{ width: "100%", maxWidth: "350px", borderRadius: "10px", cursor: "pointer" }} onClick={() => navigate(`/herb/${filteredData[i + 1].id}`)}>
                                     <img 
                                         src={filteredData[i + 1].identifier}  
                                         alt={filteredData[i + 1]["scientificName.x"]}
