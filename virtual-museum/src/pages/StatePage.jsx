@@ -5,6 +5,7 @@ import DEMO_DATA from "../../data/demo_data"
 import DEMO_DATA_2 from "../../data/demo_data_2"
 import LeftPlantBlurb from "../components/LeftPlantBlurb"
 import RightPlantBlurb from "../components/RightPlantBlurb"
+import MysteryBox from "../components/mysteryBox";
 
 
 export default function StatePage() {

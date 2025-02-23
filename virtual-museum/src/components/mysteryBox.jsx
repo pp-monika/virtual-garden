@@ -4,6 +4,7 @@ import Papa from 'papaparse';
 import DEMO_DATA from "../../data/demo_data";
 import BatchPopup from "../components/popUpBatch";
 import { Modal, Button } from "react-bootstrap";
+import mysteryF from "../assets/mysteryF.png"
 
 export default function MysteryBox() {
     const navigate = useNavigate();
@@ -78,7 +79,7 @@ export default function MysteryBox() {
                     padding: "0",
                 }}
             >
-                &#127802;
+                <img src={mysteryF} alt="mystery" height={200}/>
             </button>
 
             {/* Bootstrap Modal for Popup */}
