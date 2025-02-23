@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import DEMO_DATA from "../../data/demo_data";
+import DEMO_DATA_2 from "../../data/demo_data_2";
 import Groq from "groq-sdk";
 import { useEffect, useState } from "react";
 
@@ -8,7 +8,8 @@ export default function HerbPage() {
     const navigate = useNavigate();
     const [herbDescription, setHerbDescription] = useState("")
     const API_URL = import.meta.env.VITE_API_URL;
-    const herb = DEMO_DATA.find((h) => h.id === herbId) || {
+
+    const herb = DEMO_DATA_2.find((h) => h.id === herbId) || {
         "scientificName.x": "Unknown Herb",
         "family.x": "Unknown Family",
         "genus.x": "Unknown Genus",
