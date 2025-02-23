@@ -31,16 +31,17 @@ export default function MysteryBox() {
             const HerbName = data["scientificName.x"] || "Unknown Herb";
             const Location = data["stateProvince"] || "Unknown Location";
             const MediaUrl = data["identifier"] || "default.png";
+            const newHerbId = data["id"];
     
             setHerbName(HerbName);
             setHerbLocation(Location);
             setHerbMedia(MediaUrl);
-            setHerbId(data["id"]);
+            setHerbId(newHerbId);
             // Get existing stored herbs from localStorage
             let storedHerbs = JSON.parse(localStorage.getItem("collections")) || [];
 
             // Append new herbId to the list
-            storedHerbs.push(herbId);
+            storedHerbs.push(newHerbId);
 
             // Save back to localStorage
             localStorage.setItem("collections", JSON.stringify(storedHerbs));
