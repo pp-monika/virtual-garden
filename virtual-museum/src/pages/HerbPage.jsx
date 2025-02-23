@@ -1,8 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import DEMO_DATA from "../../data/demo_data";
-import { useNavigate } from "react-router-dom";
 import Groq from "groq-sdk";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -10,6 +9,13 @@ import { useEffect } from "react";
 export default function HerbPage() {
     const { herbId } = useParams();
     const navigate = useNavigate();
+    const [herbDescription, setHerbDescription] = useState("")
+    const herb = DEMO_DATA.find((h) => h.id === herbId) || {
+        "scientificName.x": "Unknown Herb",
+        "scientificName.y": "Unknown Herb",
+        "stateProvince": "Unknown Location",
+        "identifier": "default.png"
+    };
 
     const fetchHerbDescription = async (herbName) => {
         try {
@@ -28,14 +34,8 @@ export default function HerbPage() {
     };
 
     useEffect(()=>{
-        const herb = DEMO_DATA.find((h) => h.id === herbId) || {
-            "scientificName.x": "Unknown Herb",
-            "scientificName.y": "Unknown Herb",
-            "stateProvince": "Unknown Location",
-            "identifier": "default.png"
-        };
-        fetchHerbDescription(HerbName);
-    },[])
+        fetchHerbDescription(herb["scientificName.x"]);
+    },[herb])
     
 
     const handleBack = () =>{
