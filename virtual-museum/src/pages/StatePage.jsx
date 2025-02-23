@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import topicImage from "../assets/ma-collection-topic-image-2.jpg";
 import DEMO_DATA from "../../data/demo_data"
+import DEMO_DATA_2 from "../../data/demo_data_2"
 import LeftPlantBlurb from "../components/LeftPlantBlurb"
 import RightPlantBlurb from "../components/RightPlantBlurb"
 
@@ -39,40 +40,42 @@ export default function StatePage() {
                 </p>
             </div>
 
+            {stateName === "Massachusetts" && <>
+                <div style={{backgroundColor: "#ede1d5", paddingTop: "70px"}}>
+                    <div className="text-center"><h2 className="display-5 fw-bold py-5">Featured Flora</h2></div>
+                    <div className="container" style={{paddingBottom: "50px", paddingTop: "50px"}}>
+                        {DEMO_DATA.filter((data) => data.id === "eab00aaa-b85b-4edf-bebf-c8de5a898665")
+                            .map((filteredData) => {
+                                return <LeftPlantBlurb filteredData={filteredData} />
+                                
+                            })
+                        }
+                    </div>
 
-            <div style={{backgroundColor: "#ede1d5", paddingTop: "70px"}}>
-                <div className="text-center"><h2 className="display-5 fw-bold py-5">Featured Flora</h2></div>
-                <div className="container" style={{paddingBottom: "50px", paddingTop: "50px"}}>
-                    {DEMO_DATA.filter((data) => data.id === "0ebca4ac-6068-44c2-b202-7ebf2253d27f")
-                        .map((filteredData) => {
-                            return <LeftPlantBlurb filteredData={filteredData} />
-                            
-                        })
-                    }
+                    <div className="container" style={{paddingBottom: "50px", paddingTop: "100px"}}>
+                        {DEMO_DATA.filter((data) => data.id === "64e59696-645c-428a-840a-02c5263f40e8")
+                            .map((filteredData) => {
+                                return <RightPlantBlurb filteredData={filteredData} />
+                            })
+                        }
+                    </div>
+
+                    <div className="container" style={{paddingBottom: "100px", paddingTop: "100px"}}>
+                        {DEMO_DATA.filter((data) => data.id === "78147d2c-175c-11e6-b5e0-001ec9fd629b")
+                            .map((filteredData) => {
+                                return <LeftPlantBlurb filteredData={filteredData} />
+                            })
+                        }
+                    </div>
                 </div>
+            </>}
+            
 
-                <div className="container" style={{paddingBottom: "50px", paddingTop: "100px"}}>
-                    {DEMO_DATA.filter((data) => data.id === "e6e37c8d-1c24-484c-b4d6-14e564f51ec8")
-                        .map((filteredData) => {
-                            return <RightPlantBlurb filteredData={filteredData} />
-                        })
-                    }
-                </div>
-
-                <div className="container" style={{paddingBottom: "100px", paddingTop: "100px"}}>
-                    {DEMO_DATA.filter((data) => data.id === "587580ce-175c-11e6-b5e0-001ec9fd629b")
-                        .map((filteredData) => {
-                            return <LeftPlantBlurb filteredData={filteredData} />
-                        })
-                    }
-                </div>
-            </div>
-
-            <div className="pt-5 pb-5" style={{ backgroundColor: "#faf5e6", paddingTop: "70px" }}>
+            <div className="pt-5" style={{ backgroundColor: "#faf5e6", paddingTop: "70px" }}>
                 <div className="text-center"><h2 className="display-5 fw-bold py-5">Browse all {stateName} Plant Records</h2></div>
                 {(() => {
             const rows = [];
-            const filteredData = DEMO_DATA.filter((data) => data.stateProvince === "Massachusetts");
+            const filteredData = DEMO_DATA_2.filter((data) => data.stateProvince === stateName);
 
             for (let i = 0; i < filteredData.length; i += 2) {
                 rows.push(

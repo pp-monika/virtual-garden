@@ -8,7 +8,7 @@ export default function HerbPage() {
     const { herbId } = useParams();
     const navigate = useNavigate();
     const [herbDescription, setHerbDescription] = useState("")
-    
+
     const herb = DEMO_DATA.find((h) => h.id === herbId) || {
         "scientificName.x": "Unknown Herb",
         "family.x": "Unknown Family",
@@ -40,12 +40,8 @@ export default function HerbPage() {
     },[herb])
     
 
-    const handleBack = () =>{
-        navigate(`/`);
-    }
-
     return (
-        <div className="container mt-5">
+        <div className="pt-5" style={{height: "100vh", backgroundColor: "#faf5e6"}}>
             <div className="row justify-content-center align-items-start w-100">
                 
                 {/* Left Column - Plant Image */}
