@@ -44,7 +44,6 @@ export default function MysteryBox() {
         console.log("clicked");
         pickAHerb();
         setShowPopup(true);
-        console.log(showPopup);
     };
 
     return (
