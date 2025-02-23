@@ -32,6 +32,9 @@ export default function Navbar() {
                                 <li><a className="dropdown-item" href="#">Endangered Collections</a></li>
                             </ul>
                         </li>
+                        <li>
+                        <a className="nav-link" href="https://lookerstudio.google.com/s/sYiErHtCQ6I">Analytic Charts</a>
+                        </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">About Us</a>
                         </li>

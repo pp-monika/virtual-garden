@@ -65,30 +65,65 @@ export default function ProfilePage() {
                         <h4 className="fw-bold">🌿 Herbs Collected</h4>
                         <p className="mb-3">Congratulations! You've collected these herbs.</p>
                         <div className="d-flex flex-wrap justify-content-center">
-                        {herbList.length > 0 ? (
-                            herbList.map(herb => (
-                                <button 
-                                    key={herb.id} 
-                                    className="text-center m-3" 
-                                    onClick={() => navigate(`/herb/${herb.id}`)}
-                                    style={{ background: "transparent", border: "none", outline: "none" }} 
-                                >
-                                    <img 
-                                        src={herb.mediaUrl} 
-                                        alt={herb.name} 
-                                        className="rounded-circle" 
-                                        width="60" 
-                                        height="60" 
-                                        style={{ objectFit: "cover", border: "2px solid #28a745" }} 
-                                    />
-                                    <p className="fw-bold mt-1">{herb.name}</p>
-                                </button> 
-                            ))
-                        ) : (
-                            <p className="text-muted">No herbs collected yet.</p>
-                        )}
+                            {herbList.length > 0 ? (
+                                herbList.map(herb => (
+                                    <button 
+                                        key={herb.id} 
+                                        className="herb-button text-center m-3" 
+                                        onClick={() => navigate(`/herb/${herb.id}`)}
+                                    >
+                                        <img 
+                                            src={herb.mediaUrl} 
+                                            alt={herb.name} 
+                                            className="herb-image rounded-circle" 
+                                        />
+                                        <p className="herb-name">{herb.name}</p>
+                                    </button> 
+                                ))
+                            ) : (
+                                <p className="text-muted">No herbs collected yet.</p>
+                            )}
                         </div>
                     </div>
+                    <style>
+                        {`
+                        .herb-button {
+                            background: transparent;
+                            border: none;
+                            outline: none;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            position: relative;
+                        }
+
+                        .herb-image {
+                            width: 60px;
+                            height: 60px;
+                            object-fit: cover;
+                            border: 2px solid #28a745;
+                        }
+
+                        .herb-name {
+                            font-weight: bold;
+                            margin-top: 5px;
+                            opacity: 0;
+                            transition: opacity 0.3s ease-in-out;
+                            position: absolute;
+                            bottom: -20px;
+                            background: rgba(0, 0, 0, 0.75);
+                            color: white;
+                            padding: 3px 6px;
+                            border-radius: 4px;
+                            white-space: nowrap;
+                            font-size: 0.9rem;
+                        }
+
+                        .herb-button:hover .herb-name {
+                            opacity: 1;
+                        }
+                        `}
+                    </style>
                 
                 </div>
             </div>
