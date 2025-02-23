@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Papa from 'papaparse';
 import DEMO_DATA from "../../data/demo_data";
 import BatchPopup from "../components/popUpBatch";
+import { Modal, Button } from "react-bootstrap";
 
 export default function MysteryBox() {
     const navigate = useNavigate();
@@ -46,11 +47,16 @@ export default function MysteryBox() {
         setShowPopup(true);
     };
 
+    const handleHerbPage = () => {
+        navigate(`herb/${herbId}`);
+    };
+
     return (
-        <div 
+        <div
             className="d-flex flex-column map-container align-items-center justify-content-center"
             style={{ width: "100vw", height: "100vh", position: "relative" }}
         >
+            <p style={{ fontSize: "2rem", marginBottom: "1rem" }}>Try what's inside!</p>
             <button
                 onClick={handleClick}
                 style={{
@@ -64,30 +70,106 @@ export default function MysteryBox() {
                 🎁
             </button>
 
-            {/* Overlay should only be rendered when showPopup is true */}
-            {showPopup && (
-                <div
-                    style={{
-                        position: "fixed",
-                        top: 0,
-                        left: 0,
-                        width: "100vw",
-                        height: "100vh",
-                        background: "rgba(0, 0, 0, 0.7)",
-                        zIndex: 998, 
-                    }}
-                />
-            )}
+            {/* Bootstrap Modal for Popup */}
+            <Modal
+                show={showPopup}
+                onHide={() => setShowPopup(false)}
+                centered
+                backdrop="static"
+                dialogClassName="large-modal"
+            >
+                <Modal.Body className="text-center">
+                    {/* New Collection Banner */}
+                    <div
+                        style={{
+                            background: "#ffcc00", // Yellow banner
+                            color: "black",
+                            fontSize: "22px",
+                            fontWeight: "bold",
+                            padding: "10px",
+                            borderTopLeftRadius: "10px",
+                            borderTopRightRadius: "10px",
+                            textAlign: "center",
+                            position: "relative",
+                            top: "-10px",
+                        }}
+                    >
+                        🎉 New Collection! 🎉
+                    </div>
 
-            {/* BatchPopup should be above everything */}
-            {showPopup && (
-                <BatchPopup
-                    image={herbMedia}
-                    message="New Batch Collected"
-                    onClose={() => setShowPopup(false)}
-                    style={{ zIndex: 2000 }}
-                />
-            )}
+                    {/* Image Container */}
+                    <div
+                        style={{
+                            position: "relative",
+                            width: "320px", // Increased size
+                            height: "320px",
+                            margin: "auto",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            background: "white",
+                            borderRadius: "50%",
+                            boxShadow: "0 6px 16px rgba(0, 0, 0, 0.4)",
+                            padding: "20px",
+                        }}
+                    >
+                        <img
+                            src={herbMedia}
+                            alt="Herb Icon"
+                            style={{
+                                width: "280px",
+                                height: "280px",
+                                borderRadius: "50%",
+                                boxShadow: "0 6px 16px rgba(0, 0, 0, 0.4)",
+                            }}
+                        />
+                    </div>
+
+                    {/* Herb Name */}
+                    <p
+                        style={{
+                            fontSize: "24px",
+                            fontWeight: "bold",
+                            color: "#333",
+                            marginTop: "15px",
+                            textAlign: "center",
+                        }}
+                    >
+                        🌿 {herbName} 🌿
+                    </p>
+                </Modal.Body>
+
+                {/* Buttons */}
+                <Modal.Footer
+                    className="d-flex justify-content-center"
+                    style={{ borderTop: "none", paddingBottom: "20px" }}
+                >
+                    <Button
+                        variant="success"
+                        onClick={() => handleHerbPage()}
+                        style={{
+                            fontSize: "18px",
+                            padding: "10px 20px",
+                            marginRight: "10px",
+                            borderRadius: "8px",
+                        }}
+                    >
+                        I want to learn more!
+                    </Button>
+                    <Button
+                        variant="secondary"
+                        onClick={() => setShowPopup(false)}
+                        style={{
+                            fontSize: "18px",
+                            padding: "10px 20px",
+                            borderRadius: "8px",
+                        }}
+                    >
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 }
