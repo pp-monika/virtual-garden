@@ -14,6 +14,9 @@ const HerbSchema = new mongoose.Schema({
         x: { type: String },
         y: { type: String },
     }
-});
+},{
+        timestamps: true,
+        collection: 'herb_dataset'
+      });
 
 module.exports = mongoose.model('Herb', HerbSchema);
