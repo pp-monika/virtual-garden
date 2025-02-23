@@ -19,6 +19,8 @@ introduce those natural history collections in a user-friendly way with differen
 
 
 ## installation
+```
 cd virtual-museum
 npm install vite --save-dev
-use npm run dev to run
+npm run dev
+```
