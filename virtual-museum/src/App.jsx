@@ -5,6 +5,7 @@ import Home from './pages/Home';
 // import NotFound from './pages/NotFound';
 import Navbar from './components/Navbar';
 import StatePage from "./pages/StatePage";
+import HerbPage from './pages/HerbPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/state/:stateName" element={<StatePage />} />
+        <Route path="/herb/:herbId" element={<HerbPage />} />
         {/* <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} /> */}
