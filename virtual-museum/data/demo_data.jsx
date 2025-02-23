@@ -480,7 +480,7 @@ const DEMO_DATA = [
     "format":"image\/jpeg",
     "identifier":"http:\/\/data.huh.harvard.edu\/12a7cf72-f5cd-4fe2-973b-61329867ee34\/image",
     "references.x":"http:\/\/data.huh.harvard.edu\/12a7cf72-f5cd-4fe2-973b-61329867ee34",
-    "description":null,
+    "description":"Erigeron philadelphicus L., commonly known as Philadelphia fleabane, is a herbaceous perennial plant in the Asteraceae family. Native to North America, it typically grows in meadows, roadsides, and disturbed areas. The plant features erect, hairy stems reaching up to 1 meter tall, with lance-shaped leaves that clasp the stem. It produces daisy-like flower heads with numerous thin, pink to lavender ray florets surrounding a bright yellow center, blooming from spring to early summer. Philadelphia fleabane is known for attracting pollinators and has been used in traditional medicine for its potential medicinal properties.",
     "created":"2014-03-11 00:00:00",
     "creator":null,
     "license.x":"https:\/\/huh.harvard.edu\/access-digital-reproductions-works-public-domain",

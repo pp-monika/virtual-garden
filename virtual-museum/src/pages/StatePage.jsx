@@ -44,7 +44,7 @@ export default function StatePage() {
                 <div style={{backgroundColor: "#ede1d5", paddingTop: "70px"}}>
                     <div className="text-center"><h2 className="display-5 fw-bold py-5">Featured Flora</h2></div>
                     <div className="container" style={{paddingBottom: "50px", paddingTop: "50px"}}>
-                        {DEMO_DATA.filter((data) => data.id === "eab00aaa-b85b-4edf-bebf-c8de5a898665")
+                        {DEMO_DATA.filter((data) => data.id === "0ebca4ac-6068-44c2-b202-7ebf2253d27f")
                             .map((filteredData) => {
                                 return <LeftPlantBlurb filteredData={filteredData} />
                                 
@@ -53,7 +53,7 @@ export default function StatePage() {
                     </div>
 
                     <div className="container" style={{paddingBottom: "50px", paddingTop: "100px"}}>
-                        {DEMO_DATA.filter((data) => data.id === "64e59696-645c-428a-840a-02c5263f40e8")
+                        {DEMO_DATA.filter((data) => data.id === "e6e37c8d-1c24-484c-b4d6-14e564f51ec8")
                             .map((filteredData) => {
                                 return <RightPlantBlurb filteredData={filteredData} />
                             })
@@ -61,7 +61,7 @@ export default function StatePage() {
                     </div>
 
                     <div className="container" style={{paddingBottom: "100px", paddingTop: "100px"}}>
-                        {DEMO_DATA.filter((data) => data.id === "78147d2c-175c-11e6-b5e0-001ec9fd629b")
+                        {DEMO_DATA.filter((data) => data.id === "12a7cf72-f5cd-4fe2-973b-61329867ee34")
                             .map((filteredData) => {
                                 return <LeftPlantBlurb filteredData={filteredData} />
                             })
