@@ -45,7 +45,7 @@ export default function ProfilePage() {
 
                     {/* Badges Achieved Section with Alert */}
                     <div className="alert alert-warning text-center shadow-lg">
-                        <h4 className="fw-bold">🏆 Badges Achieved</h4>
+                        <h4 className="fw-bold pt-4">🏆 Badges Achieved</h4>
                         <p className="mb-3">Congratulations! You've earned these badges.</p>
                         <div className="d-flex flex-wrap justify-content-center">
                             {BADGES.length > 0 ? (

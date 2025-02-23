@@ -1,13 +1,15 @@
 import { useParams } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import topicImage from "../assets/ma-collection-topic-image-2.jpg";
 import DEMO_DATA from "../../data/demo_data"
+import DEMO_DATA_2 from "../../data/demo_data_2"
 import LeftPlantBlurb from "../components/LeftPlantBlurb"
 import RightPlantBlurb from "../components/RightPlantBlurb"
 
 
 export default function StatePage() {
     const { stateName } = useParams();
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -38,45 +40,48 @@ export default function StatePage() {
                 </p>
             </div>
 
+            {stateName === "Massachusetts" && <>
+                <div style={{backgroundColor: "#ede1d5", paddingTop: "70px"}}>
+                    <div className="text-center"><h2 className="display-5 fw-bold py-5">Featured Flora</h2></div>
+                    <div className="container" style={{paddingBottom: "50px", paddingTop: "50px"}}>
+                        {DEMO_DATA.filter((data) => data.id === "eab00aaa-b85b-4edf-bebf-c8de5a898665")
+                            .map((filteredData) => {
+                                return <LeftPlantBlurb filteredData={filteredData} />
+                                
+                            })
+                        }
+                    </div>
 
-            <div style={{backgroundColor: "#ede1d5", paddingTop: "70px"}}>
-                <div className="text-center"><h2 className="display-5 fw-bold py-5">Featured Flora</h2></div>
-                <div className="container" style={{paddingBottom: "50px", paddingTop: "50px"}}>
-                    {DEMO_DATA.filter((data) => data.id === "eab00aaa-b85b-4edf-bebf-c8de5a898665")
-                        .map((filteredData) => {
-                            return <LeftPlantBlurb filteredData={filteredData} />
-                        })
-                    }
-                </div>
+                    <div className="container" style={{paddingBottom: "50px", paddingTop: "100px"}}>
+                        {DEMO_DATA.filter((data) => data.id === "64e59696-645c-428a-840a-02c5263f40e8")
+                            .map((filteredData) => {
+                                return <RightPlantBlurb filteredData={filteredData} />
+                            })
+                        }
+                    </div>
 
-                <div className="container" style={{paddingBottom: "50px", paddingTop: "100px"}}>
-                    {DEMO_DATA.filter((data) => data.id === "64e59696-645c-428a-840a-02c5263f40e8")
-                        .map((filteredData) => {
-                            return <RightPlantBlurb filteredData={filteredData} />
-                        })
-                    }
+                    <div className="container" style={{paddingBottom: "100px", paddingTop: "100px"}}>
+                        {DEMO_DATA.filter((data) => data.id === "78147d2c-175c-11e6-b5e0-001ec9fd629b")
+                            .map((filteredData) => {
+                                return <LeftPlantBlurb filteredData={filteredData} />
+                            })
+                        }
+                    </div>
                 </div>
-
-                <div className="container" style={{paddingBottom: "100px", paddingTop: "100px"}}>
-                    {DEMO_DATA.filter((data) => data.id === "78147d2c-175c-11e6-b5e0-001ec9fd629b")
-                        .map((filteredData) => {
-                            return <LeftPlantBlurb filteredData={filteredData} />
-                        })
-                    }
-                </div>
-            </div>
+            </>}
+            
 
             <div className="pt-5" style={{ backgroundColor: "#faf5e6", paddingTop: "70px" }}>
                 <div className="text-center"><h2 className="display-5 fw-bold py-5">Browse all {stateName} Plant Records</h2></div>
                 {(() => {
             const rows = [];
-            const filteredData = DEMO_DATA.filter((data) => data.stateProvince === "Massachusetts");
+            const filteredData = DEMO_DATA_2.filter((data) => data.stateProvince === stateName);
 
             for (let i = 0; i < filteredData.length; i += 2) {
                 rows.push(
                     <div key={i} className="row g-2 justify-content-center mb-5">
                         <div className="col-md-6 d-flex justify-content-center" style={{paddingLeft: "15vw"}}>
-                            <div className="card shadow-sm" style={{ width: "100%", maxWidth: "350px", borderRadius: "10px" }}>
+                            <div className="card shadow-sm" style={{ width: "100%", maxWidth: "350px", borderRadius: "10px", cursor: "pointer" }} onClick={() => navigate(`/herb/${filteredData[i].id}`)}>
                                 <img 
                                     src={filteredData[i].identifier}  
                                     alt={filteredData[i]["scientificName.x"]}
@@ -91,7 +96,7 @@ export default function StatePage() {
 
                         {filteredData[i + 1] && (
                             <div className="col-md-6 d-flex justify-content-center" style={{paddingRight: "15vw"}}>
-                                <div className="card shadow-sm" style={{ width: "100%", maxWidth: "350px", borderRadius: "10px" }}>
+                                <div className="card shadow-sm" style={{ width: "100%", maxWidth: "350px", borderRadius: "10px", cursor: "pointer" }} onClick={() => navigate(`/herb/${filteredData[i + 1].id}`)}>
                                     <img 
                                         src={filteredData[i + 1].identifier}  
                                         alt={filteredData[i + 1]["scientificName.x"]}
