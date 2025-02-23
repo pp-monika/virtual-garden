@@ -2,10 +2,10 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const Groq = require("groq-sdk");
-const connectDB = require("./config/db");
+// const connectDB = require("./config/db");
 
 dotenv.config();
-connectDB();
+// connectDB();
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -14,7 +14,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/herbs", require("./routes/herbRoutes"));
+// app.use("/api/herbs", require("./routes/herbRoutes"));
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY || "" });
 
