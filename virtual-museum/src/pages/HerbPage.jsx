@@ -1,12 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
 import DEMO_DATA_2 from "../../data/demo_data_2";
-import Groq from "groq-sdk";
 import { useEffect, useState } from "react";
 
 export default function HerbPage() {
     const { herbId } = useParams();
     const navigate = useNavigate();
-    const [herbDescription, setHerbDescription] = useState("")
+    const [herbDescription, setHerbDescription] = useState("");
     const API_URL = import.meta.env.VITE_API_URL;
 
     const herb = DEMO_DATA_2.find((h) => h.id === herbId) || {
@@ -35,13 +34,18 @@ export default function HerbPage() {
         }
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchHerbDescription(herb["scientificName.x"]);
-    },[herb])
-    
+    }, [herb]);
 
     return (
-        <div className="pt-5" style={{height: "100vh", backgroundColor: "#faf5e6"}}>
+        <div className="pt-5" style={{ height: "100vh", backgroundColor: "#faf5e6" }}>
+            {/* Back Button */}
+            <div className="my-3" style={{marginLeft: "45px"}}>
+                <button onClick={() => navigate(-1)} className="btn btn-primary">
+                    ← Back to collection
+                </button>
+            </div>
             <div className="row justify-content-center align-items-start w-100">
                 
                 {/* Left Column - Plant Image */}
@@ -54,23 +58,20 @@ export default function HerbPage() {
                     />
                 </div>
 
-                {/* Right Column - Plant Details */}
-                <div className="col-md-8 text-md-start ps-5 pt-3">
-                    <h2 className="fw-bold">{herb["scientificName.x"]}</h2>
-                    <p className="fs-5 text-muted">
-                        Found in {herb.stateProvince}
-                    </p>
-                    <p className="fs-5 text-muted">Family: {herb["family.x"]}</p>
-                    <p className="fs-5 text-muted">Genus: {herb["genus.x"]}</p>
-                    <p className="fs-5">📍 Found in <strong>{herb.county ? `${herb.county}, ` : ""} {herb.stateProvince}</strong></p>
-                    <p className="fs-5">🧑 Recorded by: <strong>{herb.recordedBy ? herb.recordedBy : "No data available"}</strong></p>
-                    <p className="fs-5">📅 Date: <strong>{herb.eventDate ? herb.eventDate : "Unknown"}</strong></p>
-                    <p><strong>AI-generated Description:</strong> {herbDescription}</p>
-                    
-                    {/* Back Button */}
-                    <button onClick={() => navigate(-1)} className="btn btn-primary mt-3">
-                        ← Back
-                    </button>
+                {/* Right Column - Card for Plant Details */}
+                <div className="col-md-8 pe-5">
+                    <div className="card shadow-sm p-4" style={{ backgroundColor: "rgba(255, 255, 255, 0.8)", border: "none", borderRadius: "10px" }}>
+                        <h2 className="fw-bold card-title">{herb["scientificName.x"]}</h2>
+                        <div className="card-body">
+                            
+                            <p className="fs-5">📍 Found in <strong>{herb.county ? `${herb.county}, ` : ""} {herb.stateProvince}</strong></p>
+                            {herb.recordedBy && <p className="fs-5">🧑 {`Recorded by ${herb.recordedBy}`}</p>}
+                            <p className="fs-5">📅 Date: <strong>{herb.eventDate ? herb.eventDate : "Unknown"}</strong></p>
+                            <p className="fs-5 text-muted">🌿 Family: {herb["family.x"]}</p>
+                            <p className="fs-5 text-muted">🌱 Genus: {herb["genus.x"]}</p>
+                            <p className="fs-6"><strong>📝 AI-generated Description:</strong> {herbDescription}</p>
+                        </div>
+                    </div>
                 </div>
 
             </div>
