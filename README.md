@@ -15,7 +15,7 @@ introduce those natural history collections in a user-friendly way with differen
   
 - Data Visualization
 - Web Design
-  - Target Users
+
 
 
 ## installation
