@@ -2,11 +2,15 @@
   "dependencies": {
     "bootstrap-icons": "^1.11.3",
     "cors": "^2.8.5",
+    "d3": "^7.9.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "groq-sdk": "^0.15.0",
+    "leaflet": "^1.9.4",
     "papaparse": "^5.5.2",
     "react-bootstrap": "^2.10.9",
+    "react-leaflet": "^5.0.0",
+    "react-leaflet-heatmap-layer": "^2.0.0",
     "react-medium-image-zoom": "^5.2.14",
     "react-simple-maps": "^3.0.0"
   }
