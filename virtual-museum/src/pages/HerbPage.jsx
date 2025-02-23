@@ -3,13 +3,11 @@ import DEMO_DATA from "../../data/demo_data";
 import Groq from "groq-sdk";
 import { useEffect, useState } from "react";
 
-
-
-
 export default function HerbPage() {
     const { herbId } = useParams();
     const navigate = useNavigate();
     const [herbDescription, setHerbDescription] = useState("")
+    const API_URL = import.meta.env.VITE_API_URL;
     const herb = DEMO_DATA.find((h) => h.id === herbId) || {
         "scientificName.x": "Unknown Herb",
         "scientificName.y": "Unknown Herb",
@@ -19,7 +17,7 @@ export default function HerbPage() {
 
     const fetchHerbDescription = async (herbName) => {
         try {
-            const response = await fetch("http://localhost:5000/api/generate", {
+            const response = await fetch(`${API_URL}/api/generate`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ herbName })

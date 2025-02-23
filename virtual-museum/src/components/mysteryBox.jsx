@@ -67,20 +67,19 @@ export default function MysteryBox() {
     return (
         <div
             className="d-flex flex-column map-container align-items-center justify-content-center"
-            style={{ width: "100vw", height: "100vh", position: "relative" }}
+            style={{ width: "10vw", height: "10vh", position: "relative" }}
         >
-            <p style={{ fontSize: "2rem", marginBottom: "1rem" }}>Try what's inside!</p>
             <button
                 onClick={handleClick}
                 style={{
-                    fontSize: "300px",
+                    fontSize: "50px",
                     background: "transparent",
                     border: "none",
                     cursor: "pointer",
                     padding: "0",
                 }}
             >
-                🎁
+                &#127802;
             </button>
 
             {/* Bootstrap Modal for Popup */}
