@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import StatePage from "./pages/StatePage";
 import HerbPage from './pages/HerbPage';
-import CollectionPage from "./pages/CollectionPage";
 
 import ProfilePage from './pages/ProfilePage';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -19,7 +18,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/state/:stateName" element={<StatePage />} />
         <Route path="/herb/:herbId" element={<HerbPage />} />
-        <Route path="/collection" element={<CollectionPage/>} />
         <Route path="/profile" element={<ProfilePage />} />
         {/* <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
