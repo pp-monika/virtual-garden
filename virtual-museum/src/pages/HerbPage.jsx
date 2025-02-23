@@ -10,7 +10,7 @@ export default function HerbPage() {
     const [herbName, setHerbName] = useState("Flower");
     const [herbMedia, setHerbMedia] = useState("flower.png");
     const [herbLocation, setHerbLocation] = useState("Massachusetts");
-    const [showPopup, setShowPopup] = useState(true);
+  
 
     useEffect(() =>{
         fetchData(herbId);
@@ -66,13 +66,7 @@ export default function HerbPage() {
             <p>This is found in {herbLocation}</p>
             <button onClick={handleBack} class="btn btn-primary">Back</button>
 
-            {showPopup && (
-                <BatchPopup
-                image={herbMedia}
-                message="New Batch Collected"
-                onClose={() => setShowPopup(false)}
-                />
-            )}
+            
         </div>
     );
 }
