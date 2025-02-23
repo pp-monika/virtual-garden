@@ -2,7 +2,9 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import DEMO_DATA from "../../data/demo_data";
-import BatchPopup from "../components/popUpBatch";
+import Groq from "groq-sdk";
+
+
 
 
 export default function HerbPage() {
@@ -10,7 +12,7 @@ export default function HerbPage() {
     const [herbName, setHerbName] = useState("Flower");
     const [herbMedia, setHerbMedia] = useState("flower.png");
     const [herbLocation, setHerbLocation] = useState("Massachusetts");
-  
+    const [herbDescription, setHerbDescription] = useState("Loading herb details...");
 
     useEffect(() =>{
         fetchData(herbId);
@@ -29,6 +31,24 @@ export default function HerbPage() {
         setHerbName(HerbName);
         setHerbLocation(Location);
         setHerbMedia(MediaUrl);
+
+        fetchHerbDescription(HerbName);
+    };
+
+    const fetchHerbDescription = async (herbName) => {
+        try {
+            const response = await fetch("http://localhost:5000/api/generate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ herbName })
+            });
+
+            const data = await response.json();
+            setHerbDescription(data.description);
+        } catch (error) {
+            console.error("Error fetching herb description:", error);
+            setHerbDescription("Failed to generate description.");
+        }
     };
 
     const navigate = useNavigate();
@@ -51,6 +71,7 @@ export default function HerbPage() {
             <h2>Congratulations! You got a {herbName}</h2>
             <img src={herbMedia} alt="Herb" height={500} />
             <p>This is found in {herbLocation}</p>
+            <p><strong>Description:</strong> {herbDescription}</p>
             <button onClick={handleBack} class="btn btn-primary">Back</button>
         </div>
     );
