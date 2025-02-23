@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 
 import topicImage from "../assets/ma-collection-topic-image-2.jpg";
 import DEMO_DATA from "../../data/demo_data"
+import LeftPlantBlurb from "../components/LeftPlantBlurb"
+import RightPlantBlurb from "../components/RightPlantBlurb"
 
 
 export default function StatePage() {
@@ -42,34 +44,7 @@ export default function StatePage() {
                 <div className="container" style={{paddingBottom: "50px", paddingTop: "50px"}}>
                     {DEMO_DATA.filter((data) => data.id === "eab00aaa-b85b-4edf-bebf-c8de5a898665")
                         .map((filteredData) => {
-                            return (
-                                <div className="row align-items-center">
-
-                                    <div className="col-md-4 text-center">
-                                        <img 
-                                            src={filteredData.identifier}
-                                            alt={filteredData["scientificname.x"]}
-                                            className="img-fluid rounded"
-                                            style={{ maxWidth: "120%", height: "auto" }}
-                                        />
-                                    </div>
-            
-                                    <div className="card col-md-8 px-5 py-5"
-                                        style={{ 
-                                            backgroundColor: "rgba(255, 255, 255, 0.8)",
-                                            backdropFilter: "blur(5px)",
-                                            borderRadius: "10px"
-                                        }}>
-                                        <h2 className="fw-bold mb-4">{filteredData["scientificName.x"]}</h2>
-                                        <p className="fs-5">
-                                            Commonly known as Toothcup, <span className="fst-italic">Rotala ramosior</span> is a delicate, semi-aquatic plant 
-                                            found in wet meadows and shallow waters. This species thrives in Massachusetts wetlands, 
-                                            playing an important role in aquatic ecosystems. Its tiny pink flowers bloom in late summer, 
-                                            adding a vibrant touch to its surroundings.
-                                        </p>
-                                    </div>
-                                </div>
-                            )
+                            return <LeftPlantBlurb filteredData={filteredData} />
                         })
                     }
                 </div>
@@ -77,39 +52,7 @@ export default function StatePage() {
                 <div className="container" style={{paddingBottom: "50px", paddingTop: "100px"}}>
                     {DEMO_DATA.filter((data) => data.id === "64e59696-645c-428a-840a-02c5263f40e8")
                         .map((filteredData) => {
-                            return (
-                                <div className="row align-items-center">
-                            
-                                    <div className="card col-md-8 px-5 py-5" style={{ 
-                                        position: "relative",
-                                        zIndex: 2,  
-                                        marginRight: "-5%",
-                                        backgroundColor: "rgba(255, 255, 255, 0.8)",
-                                        backdropFilter: "blur(5px)",
-                                        borderRadius: "10px"
-                                    }}>
-                                        <h2 className="fw-bold mb-4">{filteredData["scientificName.x"]}</h2>
-                                        <p className="fs-5">
-                                            <span className="fst-italic">Eleocharis robbinsii Oakes</span>, commonly known as Robbins’ spikerush, 
-                                            is a rare aquatic sedge found in Massachusetts’ freshwater wetlands, slow-moving streams, and pond edges. 
-                                            This species is distinguished by its dense, mat-forming growth, with slender, grass-like stems that emerge 
-                                            from submerged sediments. Preferring clear, nutrient-rich waters, E. robbinsii plays a crucial role in 
-                                            stabilizing shorelines and providing habitat for aquatic invertebrates. Due to habitat loss, water pollution, 
-                                            and hydrological changes, its populations have declined, making conservation efforts essential for maintaining 
-                                            Massachusetts’ wetland biodiversity. 
-                                        </p>
-                                    </div>
-
-                                    <div className="col-md-4 text-center">
-                                        <img 
-                                            src={filteredData.identifier}
-                                            alt={filteredData["scientificname.x"]}
-                                            className="img-fluid rounded"
-                                            style={{ maxWidth: "100%", height: "auto" }}
-                                        />
-                                    </div>
-                                </div>
-                            )
+                            return <RightPlantBlurb filteredData={filteredData} />
                         })
                     }
                 </div>
@@ -117,36 +60,7 @@ export default function StatePage() {
                 <div className="container" style={{paddingBottom: "100px", paddingTop: "100px"}}>
                     {DEMO_DATA.filter((data) => data.id === "78147d2c-175c-11e6-b5e0-001ec9fd629b")
                         .map((filteredData) => {
-                            return (
-                                <div className="row align-items-center">
-
-                                    <div className="col-md-4 text-center">
-                                        <img 
-                                            src={filteredData.identifier}
-                                            alt={filteredData["scientificname.x"]}
-                                            className="img-fluid rounded"
-                                            style={{ maxWidth: "120%", height: "auto" }}
-                                        />
-                                    </div>
-            
-                                    <div className="card col-md-8 px-5 py-5"
-                                        style={{ 
-                                            backgroundColor: "rgba(255, 255, 255, 0.8)",
-                                            backdropFilter: "blur(5px)",
-                                            borderRadius: "10px"
-                                        }}>
-                                        <h2 className="fw-bold mb-4">{filteredData["scientificName.x"]}</h2>
-                                        <p className="fs-5">
-                                            <span className="fst-italic">Linum virginianum</span> Linnaeus, commonly known as Virginia flax, is a delicate, 
-                                            herbaceous plant found in the meadows, open woodlands, and rocky slopes of Massachusetts. This slender-stemmed species 
-                                            produces small, pale yellow flowers that bloom in late spring and summer, adding subtle beauty to its natural habitats. 
-                                            Preferring well-drained, sandy, or rocky soils, L. virginianum thrives in sunlit clearings and plays a role in supporting 
-                                            local pollinators. While not considered rare, habitat fragmentation and competition from invasive species pose challenges 
-                                            to its populations, making conservation efforts important for maintaining the biodiversity of Massachusetts’ native flora.
-                                        </p>
-                                    </div>
-                                </div>
-                            )
+                            return <LeftPlantBlurb filteredData={filteredData} />
                         })
                     }
                 </div>

@@ -4,6 +4,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "groq-sdk": "^0.15.0",
+    "bootstrap-icons": "^1.11.3",
     "papaparse": "^5.5.2",
     "react-simple-maps": "^3.0.0"
   }

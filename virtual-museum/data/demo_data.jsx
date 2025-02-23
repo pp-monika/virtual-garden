@@ -550,7 +550,8 @@ const DEMO_DATA = [
     "identifier":"http:\/\/data.huh.harvard.edu\/64e59696-645c-428a-840a-02c5263f40e8\/image",
     "stateProvince":"Massachusetts",
     "scientificName.x":"Eleocharis robbinsii Oakes",
-    "scientificName.y":"Eleocharis robbinsii Oakes"
+    "scientificName.y":"Eleocharis robbinsii Oakes",
+    "description": <><span className="fst-italic">Eleocharis robbinsii Oakes</span>, commonly known as Robbins’ spikerush, is a rare aquatic sedge found in Massachusetts’ freshwater wetlands, slow-moving streams, and pond edges. This species is distinguished by its dense, mat-forming growth, with slender, grass-like stems that emerge from submerged sediments. Preferring clear, nutrient-rich waters, E. robbinsii plays a crucial role in stabilizing shorelines and providing habitat for aquatic invertebrates. Due to habitat loss, water pollution, and hydrological changes, its populations have declined, making conservation efforts essential for maintaining Massachusetts’ wetland biodiversity. </>
   },
   {
     "id":"72f738c6-efa4-4ec9-af6c-d3207828f835",
@@ -571,7 +572,8 @@ const DEMO_DATA = [
     "identifier":"http:\/\/data.huh.harvard.edu\/78147d2c-175c-11e6-b5e0-001ec9fd629b\/image",
     "stateProvince":"Massachusetts",
     "scientificName.x":"Linum virginianum Linnaeus",
-    "scientificName.y":"Linum virginianum Linnaeus"
+    "scientificName.y":"Linum virginianum Linnaeus",
+    "description": <><span className="fst-italic">Linum virginianum</span> Linnaeus, commonly known as Virginia flax, is a delicate, herbaceous plant found in the meadows, open woodlands, and rocky slopes of Massachusetts. This slender-stemmed species produces small, pale yellow flowers that bloom in late spring and summer, adding subtle beauty to its natural habitats. Preferring well-drained, sandy, or rocky soils, L. virginianum thrives in sunlit clearings and plays a role in supporting local pollinators. While not considered rare, habitat fragmentation and competition from invasive species pose challenges to its populations, making conservation efforts important for maintaining the biodiversity of Massachusetts’ native flora.</>
   },
   {
     "id":"7a3cbe17-e0d2-4a10-9837-c43afa797e6c",
@@ -697,7 +699,8 @@ const DEMO_DATA = [
     "identifier":"http:\/\/data.huh.harvard.edu\/eab00aaa-b85b-4edf-bebf-c8de5a898665\/image",
     "stateProvince":"Massachusetts",
     "scientificName.x":"Rotala ramosior (Linnaeus) Koehne",
-    "scientificName.y":"Rotala ramosior (Linnaeus) Koehne"
+    "scientificName.y":"Rotala ramosior (Linnaeus) Koehne",
+    "description": <>Commonly known as Toothcup, <span className="fst-italic">Rotala ramosior</span> is a delicate, semi-aquatic plant found in wet meadows and shallow waters. This species thrives in Massachusetts wetlands, playing an important role in aquatic ecosystems. Its tiny pink flowers bloom in late summer, adding a vibrant touch to its surroundings.</>
   },
   {
     "id":"c61de062-503a-4094-9f5a-fe8fa4e58ad3",
