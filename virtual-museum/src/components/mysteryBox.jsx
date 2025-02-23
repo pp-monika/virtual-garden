@@ -4,7 +4,6 @@ import Papa from 'papaparse';
 import DEMO_DATA from "../../data/demo_data";
 import BatchPopup from "../components/popUpBatch";
 import { Modal, Button } from "react-bootstrap";
-import fs from "fs";
 
 export default function MysteryBox() {
     const navigate = useNavigate();
