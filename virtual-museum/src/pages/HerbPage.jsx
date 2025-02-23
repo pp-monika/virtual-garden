@@ -47,26 +47,11 @@ export default function HerbPage() {
                 textAlign: "center", // Ensures text alignment
             }}
             >
-            {showPopup && (
-                <div
-                style={{
-                    position: "fixed",
-                    top: 0,
-                    left: 0,
-                    width: "100vw",
-                    height: "100vh",
-                    background: "rgba(0, 0, 0, 0.7)", // Semi-transparent black background
-                    zIndex: 999, // Make sure it's below the popup but above other elements
-                }}
-                />
-            )}
 
             <h2>Congratulations! You got a {herbName}</h2>
             <img src={herbMedia} alt="Herb" height={500} />
             <p>This is found in {herbLocation}</p>
             <button onClick={handleBack} class="btn btn-primary">Back</button>
-
-            
         </div>
     );
 }

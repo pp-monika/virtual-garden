@@ -77,7 +77,6 @@ export default function MysteryBox() {
                         background: "rgba(0, 0, 0, 0.7)",
                         zIndex: 998, 
                     }}
-                    onClick={() => setShowPopup(false)}
                 />
             )}
 
@@ -87,7 +86,7 @@ export default function MysteryBox() {
                     image={herbMedia}
                     message="New Batch Collected"
                     onClose={() => setShowPopup(false)}
-                    style={{ zIndex: 1000 }}
+                    style={{ zIndex: 2000 }}
                 />
             )}
         </div>

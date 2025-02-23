@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const BatchPopup = ({ image, message, onClose }) => {
   useEffect(() => {
-
+		console.log("popup");
     const handleClick = () => {
       onClose();
     };
