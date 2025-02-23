@@ -68,7 +68,7 @@ export default function StatePage() {
                 </div>
             </div>
 
-            <div className="pt-5" style={{ backgroundColor: "#faf5e6", paddingTop: "70px" }}>
+            <div className="pt-5 pb-5" style={{ backgroundColor: "#faf5e6", paddingTop: "70px" }}>
                 <div className="text-center"><h2 className="display-5 fw-bold py-5">Browse all {stateName} Plant Records</h2></div>
                 {(() => {
             const rows = [];
