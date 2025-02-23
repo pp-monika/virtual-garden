@@ -28,7 +28,7 @@ export default function RecommendedCollections() {
     ];
 
     return (
-        <div className="container mt-5">
+        <div className="container-fluid" style={{paddingTop: "100px", paddingBottom: "100px", backgroundColor: "#faf5e6"}}>
             <h2 className="text-center fw-bold mb-4">Explore Other State Collections</h2>
             <div className="row justify-content-center">
                 {states.map((state, index) => (
