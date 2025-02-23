@@ -33,7 +33,7 @@ export default function HerbPage() {
 
     const navigate = useNavigate();
     const handleBack = () =>{
-        navigate(`/`);
+        navigate(-1);
     }
 
     return (

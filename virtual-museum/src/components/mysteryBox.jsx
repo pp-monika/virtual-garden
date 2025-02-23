@@ -4,6 +4,7 @@ import Papa from 'papaparse';
 import DEMO_DATA from "../../data/demo_data";
 import BatchPopup from "../components/popUpBatch";
 import { Modal, Button } from "react-bootstrap";
+import fs from "fs";
 
 export default function MysteryBox() {
     const navigate = useNavigate();
@@ -35,6 +36,18 @@ export default function MysteryBox() {
             setHerbLocation(Location);
             setHerbMedia(MediaUrl);
             setHerbId(data["id"]);
+            // Get existing stored herbs from localStorage
+            let storedHerbs = JSON.parse(localStorage.getItem("collections")) || [];
+
+            // Append new herbId to the list
+            storedHerbs.push(herbId);
+
+            // Save back to localStorage
+            localStorage.setItem("collections", JSON.stringify(storedHerbs));
+
+            console.log("Herb ID saved to localStorage:", herbId);
+            
+
         } else {
           console.error("No data found at index:", randomIndex);
         }
