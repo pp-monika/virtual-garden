@@ -7,6 +7,7 @@ https://usvirtualgarden.netlify.app/
 1. Anna Huang
 2. Hongzun Zhang
 3. Monika Phuengmak
+4. Hesper Khong
 
 ## Goal
 We aim to create a website that function similar to an online exhibit to lower the barrier to exploring natural history collections for the general public who are interested in learning about plants and bidiversity. Particularly, we structure the presentation in a curated collection format to help visitors who are unsure of what they are looking to achieve get start exploring and introduce a gamification element such as collecting hidden badges to encourage self-exploration.
